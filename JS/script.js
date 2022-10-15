@@ -21,12 +21,24 @@ function addtask() {
         // adicionar tarefa na lista
         const list =  document.querySelector("#task-list");
         list.appendChild(newTask)
+
+        // adicionar o evento de remover
+        const removeBtn = newTask.querySelector(".remove-btn").addEventListener("click", function() {
+            removeTask(this);
+        });
         
-        // tlimpar texto
+        // limpar texto
         document.querySelector("#task-title").value = "";
     }
 
 }
+
+// função de remover tarefa
+function removeTask (task) {
+    console.log(task);
+}
+
+
 
 
 // Evento de adicionar Tarefa
