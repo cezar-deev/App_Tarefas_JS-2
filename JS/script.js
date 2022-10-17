@@ -23,10 +23,21 @@ function addtask() {
         list.appendChild(newTask)
 
         // adicionar o evento de remover
-        const removeBtn = newTask.querySelector(".remove-btn").addEventListener("click", function() {
+        const removeBtn = newTask.querySelector(".remove-btn").addEventListener("click", 
+        function() {
+
             removeTask(this);
         });
-        
+
+        // adicionar evento de completar tarefa
+        const doneBtn = newTask.querySelector(".done-btn").addEventListener("click", 
+        function() { 
+
+            completeTask(this);
+            
+        });     
+
+
         // limpar texto
         document.querySelector("#task-title").value = "";
     }
@@ -35,9 +46,16 @@ function addtask() {
 
 // função de remover tarefa
 function removeTask (task) {
-    console.log(task);
+    task.parentNode.remove(true); // removo o elemento pai (li)
 }
 
+
+// função de completar tarefa
+function completeTask(task) {
+    const taskToComplete = task.parentNode;
+
+    taskToComplete.classList.toggle("done"); // Se tiver a classe done ele retira, se tiver sem a classe ele coloca.
+}
 
 
 
